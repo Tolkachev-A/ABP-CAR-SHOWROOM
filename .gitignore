@@ -1,0 +1,8 @@
+node_modules/
+dist/
+
+.idea/
+*.swp
+
+.vite/
+vite.config.js.timestamp-*.mjs
