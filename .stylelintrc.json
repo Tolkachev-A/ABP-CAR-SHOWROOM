@@ -1,0 +1,25 @@
+{
+  "extends": [
+    "stylelint-config-standard",
+    "stylelint-config-standard-scss",
+    "stylelint-prettier/recommended"
+  ],
+  "plugins": ["stylelint-scss", "stylelint-prettier"],
+  "overrides": [
+    {
+      "files": ["*.css", "*.scss", "*.module.scss", "*.module.css", "*.astro"],
+      "syntax": "scss"
+    }
+  ],
+  "rules": {
+    "scss/at-extend-no-missing-placeholder": null,
+    "at-rule-no-unknown": null,
+    "scss/at-rule-no-unknown": true,
+    "scss/dollar-variable-pattern": null,
+    "value-keyword-case": null,
+    "prettier/prettier": true,
+    "declaration-empty-line-before": null,
+    "no-descending-specificity": null,
+    "selector-class-pattern": null
+  }
+}
