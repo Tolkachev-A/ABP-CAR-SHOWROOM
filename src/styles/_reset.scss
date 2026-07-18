@@ -1,33 +1,8 @@
-@font-face {
-  font-family: Inter;
-  src: url('../assets/fonts/Inter/400.woff2') format('woff2');
-  font-weight: 400;
-}
-
-@font-face {
-  font-family: Inter;
-  src: url('../assets/fonts/Inter/600.woff2') format('woff2');
-  font-weight: 600;
-}
-
-@font-face {
-  font-family: Manrope;
-  src: url('../assets/fonts/Manrope/500.woff2') format('woff2');
-  font-weight: 500;
-}
-
-@font-face {
-  font-family: Manrope;
-  src: url('../assets/fonts/Manrope/700.woff2') format('woff2');
-  font-weight: 700;
-}
-
 body,
 body * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Inter, sans-serif;
   color: inherit;
 }
 
