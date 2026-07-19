@@ -1,6 +1,7 @@
 import { Routes, Route, Link } from 'react-router';
 import './App.css';
 import { Header } from './components/Header/Header.tsx';
+import { Home } from './modules/Home.tsx';
 
 function App() {
   return (
@@ -10,10 +11,12 @@ function App() {
         <Link to="/">Home</Link>
         <Link to="/about">About</Link>
       </nav>
-      <Routes>
-        <Route path="/" element={<div>Home</div>} />
-        <Route path="/about" element={<div>About</div>} />
-      </Routes>
+      <main className={'container'}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<div>About</div>} />
+        </Routes>
+      </main>
     </>
   );
 }
