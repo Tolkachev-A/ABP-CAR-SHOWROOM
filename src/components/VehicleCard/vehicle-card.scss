@@ -30,7 +30,7 @@
     transform: translateY(-2px);
   }
 
-  &--featured {
+  &_featured {
     border: 2px solid $color-primary;
     box-shadow: 0 4px 12px rgb(20 86 251 / 15%);
   }
@@ -119,7 +119,7 @@
     background-color: $color-background-light;
     color: $color-text-secondary;
 
-    &--in-stock {
+    &_in-stock {
       background-color: rgb(39 174 96 / 10%);
       color: $color-in-stock;
     }

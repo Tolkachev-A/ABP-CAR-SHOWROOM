@@ -28,7 +28,7 @@ export const Rating = ({ rating, onRate }: RatingProps) => {
       return (
         <span
           key={index}
-          className={`rating__star ${isInteractive ? 'rating__star--interactive' : ''}`}
+          className={`rating__star ${isInteractive ? 'rating__star_interactive' : ''}`}
           style={{ '--star-fill': `${fillPercent}%` } as CSSProperties}
           onMouseEnter={() => isInteractive && setHoverRating(index + 1)}
           onMouseLeave={() => isInteractive && setHoverRating(null)}

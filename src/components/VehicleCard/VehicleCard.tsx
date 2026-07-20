@@ -48,7 +48,7 @@ export const VehicleCard = ({ vehicle, onViewDetails }: VehicleCardProps) => {
         <div className="vehicle-card__info-item">
           <span className="vehicle-card__label">Availability:</span>
           <span
-            className={`vehicle-card__availability vehicle-card__availability--${availabilityModifier}`}
+            className={`vehicle-card__availability vehicle-card__availability_${availabilityModifier}`}
           >
             {vehicle.availabilityStatus}
           </span>
