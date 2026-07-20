@@ -1,45 +1,20 @@
 import './vehicles.scss';
-import { useEffect, useState } from 'react';
-import { fetchVehicles } from '@api/vehicles';
-import type { Vehicle } from '@/types/vehicle';
+
 import { VehicleCard } from '@components/VehicleCard/VehicleCard.tsx';
+import { useAppContext } from '@/hooks/useAppContext.ts';
 
 export const Vehicles = () => {
-  const [vehicles, setVehicles] = useState<Vehicle[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const { state } = useAppContext();
+  const { vehicles } = state;
 
-  useEffect(() => {
-    const loadVehicles = async () => {
-      try {
-        setLoading(true);
-        const data = await fetchVehicles();
-        console.log('Fetched vehicles:', data.products);
-        setVehicles(data.products);
-      } catch (err) {
-        setError(
-          err instanceof Error ? err.message : 'Failed to load vehicles'
-        );
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    loadVehicles();
-  }, []);
+  if (!vehicles || vehicles.length === 0) {
+    return <div>No vehicles available</div>;
+  }
 
   const handleViewDetails = (vehicleId: number) => {
     console.log(`View details for vehicle: ${vehicleId}`);
     // TODO: Navigate to vehicle detail page
   };
-
-  if (loading) {
-    return <div className="vehicles__loading">Loading vehicles...</div>;
-  }
-
-  if (error) {
-    return <div className="vehicles__error">Error: {error}</div>;
-  }
 
   return (
     <div className="vehicles">

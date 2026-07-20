@@ -36,18 +36,4 @@
       gap: 16px;
     }
   }
-
-  &__loading,
-  &__error {
-    @extend .body-text;
-    padding: $spacing;
-    text-align: center;
-    color: $color-text-secondary;
-  }
-
-  &__error {
-    color: $error-color;
-    background-color: rgb(231 76 60 / 10%);
-    border-radius: 4px;
-  }
 }

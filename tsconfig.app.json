@@ -30,7 +30,7 @@
       "@/*": ["src/*"],
       "@api/*": ["src/api/*"],
       "@components/*": ["src/components/*"],
-      "@types/*": ["src/types/*"],
+      "@src/types/*": ["src/types/*"],
       "@constants/*": ["src/constants/*"],
       "@styles/*": ["src/styles/*"]
     }

@@ -1,5 +1,5 @@
 import './vehicle-card.scss';
-import type { Vehicle } from '@/types/vehicle';
+import type { Vehicle } from '@src/types/vehicle';
 import { Button } from '@components/UI/Button/Button.tsx';
 import { Rating } from '@components/UI/Rating/Rating';
 
