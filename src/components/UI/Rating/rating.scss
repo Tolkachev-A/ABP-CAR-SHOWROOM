@@ -1,0 +1,56 @@
+@use '@styles/variables' as *;
+@use '@styles/typography' as typography;
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.rating__stars {
+  display: flex;
+  gap: 2px;
+}
+
+.rating__star {
+  position: relative;
+  display: inline-block;
+  font-size: 20px;
+  width: 1em;
+  height: 1em;
+  background-color: $color-star-empty;
+  transition: transform 0.2s ease;
+  clip-path: polygon(
+    50% 0%,
+    66% 27%,
+    98% 35%,
+    76% 57%,
+    79% 91%,
+    50% 78%,
+    21% 91%,
+    24% 57%,
+    2% 35%,
+    32% 27%
+  );
+
+  &--interactive:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: $color-star;
+    width: var(--star-fill, 0%);
+    overflow: hidden;
+  }
+}
+
+.rating__value {
+  @extend .body-text;
+  color: $color-text-secondary;
+  font-weight: 600;
+  margin-left: 4px;
+}

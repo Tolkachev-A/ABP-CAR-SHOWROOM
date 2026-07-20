@@ -1,5 +1,9 @@
-@use '../../styles/colors' as *;
-@use '../../styles/typography';
+@use '@styles/variables' as *;
+@use '@styles/typography';
+
+header {
+  border-bottom: 1px solid $color-border;
+}
 
 .header {
   font-family: Manrope, sans-serif;
@@ -7,5 +11,5 @@
 }
 
 .ascent {
-  color: $primary-colors;
+  color: $color-primary;
 }

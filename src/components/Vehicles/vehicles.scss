@@ -1,0 +1,53 @@
+@use '@styles/variables' as *;
+@use '@styles/typography' as typography;
+
+.vehicles {
+  width: 100%;
+  padding-block: $spacing;
+
+  &__header {
+    margin-bottom: $spacing;
+  }
+
+  &__title {
+    @extend .heading-font;
+    color: $color-text;
+    margin-bottom: 16px;
+
+    @media (max-width: $mobile) {
+      font-size: 20px;
+      line-height: 26px;
+    }
+  }
+
+  &__subtitle {
+    @extend .body-text;
+    color: $color-text-secondary;
+    margin: 0;
+  }
+
+  &__grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacing;
+    width: 100%;
+
+    @media (max-width: $tablet) {
+      gap: 16px;
+    }
+  }
+
+  &__loading,
+  &__error {
+    @extend .body-text;
+    padding: $spacing;
+    text-align: center;
+    color: $color-text-secondary;
+  }
+
+  &__error {
+    color: $error-color;
+    background-color: rgb(231 76 60 / 10%);
+    border-radius: 4px;
+  }
+}
