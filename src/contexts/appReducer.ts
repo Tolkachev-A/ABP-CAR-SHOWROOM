@@ -13,7 +13,6 @@ export const appReducer = (state: AppState, action: AppAction): AppState => {
         ...state,
         loading: false,
         error: null,
-        vehicles: action.payload,
       };
     case 'LOAD_ERROR':
       return {

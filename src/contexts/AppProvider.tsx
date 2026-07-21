@@ -6,7 +6,6 @@ import type { AppState } from '@/types/app-context.ts';
 const initialState: AppState = {
   loading: false,
   error: null,
-  vehicles: null,
 };
 
 export const AppProvider: React.FC<React.PropsWithChildren> = ({

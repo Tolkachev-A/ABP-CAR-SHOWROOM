@@ -8,10 +8,10 @@ import type { Vehicle } from '@/types/vehicle.ts';
 
 export const Home = () => {
   const { state, dispatch } = useAppContext();
-  const { loading, vehicles } = state;
-  const [filteredVehicles, setFilteredVehicles] = useState<Vehicle[] | null>(
-    vehicles || null
-  );
+  const { loading } = state;
+
+  const [vehicles, setVehicles] = useState<Vehicle[] | null>(null);
+  const [filteredVehicles, setFilteredVehicles] = useState<Vehicle[] | null>(null);
 
   useEffect(() => {
     const loadVehicles = async (): Promise<void> => {
@@ -19,9 +19,9 @@ export const Home = () => {
 
       try {
         const data = await fetchVehicles();
-
-        dispatch({ type: 'LOAD_SUCCESS', payload: data.products });
+        setVehicles(data.products);
         setFilteredVehicles(data.products);
+        dispatch({ type: 'LOAD_SUCCESS' });
       } catch (err) {
         dispatch({
           type: 'LOAD_ERROR',
