@@ -24,7 +24,7 @@ export const Rating = ({ rating, onRate }: RatingProps) => {
       } else if (index === fullStars) {
         fillPercent = partialPercent;
       }
-      console.log(isInteractive);
+
       return (
         <span
           key={index}

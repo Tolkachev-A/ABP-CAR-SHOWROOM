@@ -1,12 +1,17 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { fetchVehicles } from '@api/vehicles';
 import { useAppContext } from '@/hooks/useAppContext.ts';
 import { Vehicles } from '@components/Vehicles/Vehicles';
 import { Spinner } from '@components/UI/Spinner/Spinner.tsx';
+import { SearchFilters } from '@components/SearchFilters/SearchFilters.tsx';
+import type { Vehicle } from '@/types/vehicle.ts';
 
 export const Home = () => {
   const { state, dispatch } = useAppContext();
-  const { loading } = state;
+  const { loading, vehicles } = state;
+  const [filteredVehicles, setFilteredVehicles] = useState<Vehicle[] | null>(
+    vehicles || null
+  );
 
   useEffect(() => {
     const loadVehicles = async (): Promise<void> => {
@@ -16,6 +21,7 @@ export const Home = () => {
         const data = await fetchVehicles();
 
         dispatch({ type: 'LOAD_SUCCESS', payload: data.products });
+        setFilteredVehicles(data.products);
       } catch (err) {
         dispatch({
           type: 'LOAD_ERROR',
@@ -34,7 +40,8 @@ export const Home = () => {
 
   return (
     <section>
-      <Vehicles />
+      <SearchFilters vehicles={vehicles} onFilterChange={setFilteredVehicles} />
+      <Vehicles filteredVehicles={filteredVehicles} />
     </section>
   );
 };

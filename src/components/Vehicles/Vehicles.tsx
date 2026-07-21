@@ -1,13 +1,14 @@
 import './vehicles.scss';
 
 import { VehicleCard } from '@components/VehicleCard/VehicleCard.tsx';
-import { useAppContext } from '@/hooks/useAppContext.ts';
+import type { Vehicle } from '@/types/vehicle';
 
-export const Vehicles = () => {
-  const { state } = useAppContext();
-  const { vehicles } = state;
+type VehiclesProps = {
+  filteredVehicles: Vehicle[] | null;
+};
 
-  if (!vehicles || vehicles.length === 0) {
+export const Vehicles = ({ filteredVehicles }: VehiclesProps) => {
+  if (!filteredVehicles || filteredVehicles.length === 0) {
     return <div>No vehicles available</div>;
   }
 
@@ -21,17 +22,24 @@ export const Vehicles = () => {
       <div className="vehicles__header">
         <h2 className="vehicles__title">Our Fleet</h2>
         <p className="vehicles__subtitle">
-          {vehicles.length} vehicles available
+          {filteredVehicles.length} vehicles available
         </p>
       </div>
+
       <div className="vehicles__grid">
-        {vehicles.map((vehicle) => (
-          <VehicleCard
-            key={vehicle.id}
-            vehicle={vehicle}
-            onViewDetails={handleViewDetails}
-          />
-        ))}
+        {filteredVehicles.length > 0 ? (
+          filteredVehicles.map((vehicle) => (
+            <VehicleCard
+              key={vehicle.id}
+              vehicle={vehicle}
+              onViewDetails={handleViewDetails}
+            />
+          ))
+        ) : (
+          <div className="vehicles__no-results">
+            No vehicles match your filters
+          </div>
+        )}
       </div>
     </div>
   );
