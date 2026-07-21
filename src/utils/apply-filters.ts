@@ -1,6 +1,6 @@
 import type { Vehicle } from '@/types/vehicle';
-import { FILTER_KEYS } from '@/types/filters';
 import type { FilterState } from '@/types/filters';
+import { FILTER_KEYS } from '@/types/filters';
 
 export const applyFilters = (
   vehicles: Vehicle[] | null,
@@ -9,16 +9,21 @@ export const applyFilters = (
   if (!vehicles) return null;
 
   return vehicles.filter((vehicle) => {
+    const search = filters[FILTER_KEYS.SEARCH] as string;
+    const brand = filters[FILTER_KEYS.BRAND] as string;
+    const minPrice = filters[FILTER_KEYS.MIN_PRICE] as number;
+    const maxPrice = filters[FILTER_KEYS.MAX_PRICE] as number;
+    const rating = filters[FILTER_KEYS.RATING] as string;
+
     const matchesSearch =
-      vehicle.title.toLowerCase().includes(filters[FILTER_KEYS.SEARCH].toLowerCase()) ||
-      vehicle.brand.toLowerCase().includes(filters[FILTER_KEYS.SEARCH].toLowerCase());
+      vehicle.title.toLowerCase().includes(search.toLowerCase()) ||
+      vehicle.brand.toLowerCase().includes(search.toLowerCase());
 
-    const matchesBrand = !filters[FILTER_KEYS.BRAND] || vehicle.brand === filters[FILTER_KEYS.BRAND];
+    const matchesBrand = !brand || vehicle.brand === brand;
 
-    const matchesPrice =
-      vehicle.price >= filters[FILTER_KEYS.MIN_PRICE] && vehicle.price <= filters[FILTER_KEYS.MAX_PRICE];
-    const matchesRating =
-      !filters[FILTER_KEYS.RATING] || vehicle.rating >= parseFloat(filters[FILTER_KEYS.RATING]);
+    const matchesPrice = vehicle.price >= minPrice && vehicle.price <= maxPrice;
+
+    const matchesRating = !rating || vehicle.rating >= parseFloat(rating);
 
     return matchesSearch && matchesBrand && matchesPrice && matchesRating;
   });

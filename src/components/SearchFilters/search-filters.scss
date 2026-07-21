@@ -22,7 +22,6 @@
     border-radius: 4px;
     background-color: white;
     color: $color-text;
-    font-size: 16px;
     transition:
       border-color 0.2s ease,
       box-shadow 0.2s ease;
@@ -72,7 +71,6 @@
 
   &__price-label {
     @extend .body-text-sm;
-    font-weight: 600;
     color: $color-text;
   }
 
@@ -97,7 +95,6 @@
     @extend .body-text;
     color: $color-text-secondary;
     white-space: nowrap;
-    font-weight: 600;
 
     @media (max-width: $tablet) {
       order: -1;
@@ -112,7 +109,6 @@
     color: $color-primary;
     border: 1px solid $color-primary;
     border-radius: 4px;
-    font-weight: 600;
     cursor: pointer;
     transition: all 0.2s ease;
 

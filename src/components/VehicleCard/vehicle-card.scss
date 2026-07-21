@@ -85,13 +85,11 @@
   &__price {
     @extend .body-text-bold;
     color: $color-price;
-    font-size: 16px;
   }
 
   &__discount {
     @extend .body-text-sm;
     color: $color-discount;
-    font-weight: 600;
   }
 
   &__info-item {
@@ -115,7 +113,6 @@
     @extend .body-text-sm;
     padding: 2px 8px;
     border-radius: 4px;
-    font-weight: 600;
     background-color: $color-background-light;
     color: $color-text-secondary;
 

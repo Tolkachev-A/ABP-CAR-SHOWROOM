@@ -1,4 +1,10 @@
-import type { FILTER_KEYS } from '@constants/filters.ts';
+export const FILTER_KEYS = {
+  SEARCH: 'search',
+  BRAND: 'brand',
+  MIN_PRICE: 'minPrice',
+  MAX_PRICE: 'maxPrice',
+  RATING: 'rating',
+} as const;
 
 export type FilterKeys = (typeof FILTER_KEYS)[keyof typeof FILTER_KEYS];
 

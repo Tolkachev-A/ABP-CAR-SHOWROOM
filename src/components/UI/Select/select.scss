@@ -11,7 +11,6 @@
 
   &__label {
     @extend .body-text-sm;
-    font-weight: 600;
     color: $color-text;
   }
 
@@ -54,7 +53,6 @@
 
     &__input {
       padding: 12px;
-      font-size: 16px;
     }
 
     &__icon {
