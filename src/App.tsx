@@ -1,9 +1,10 @@
-import { Routes, Route } from 'react-router';
+import { Routes, Route, Navigate } from 'react-router';
 import './App.css';
 import { Header } from './components/Header/Header.tsx';
 import { Home } from './modules/Home.tsx';
 import { ErrorView } from '@components/UI/Error/ErrorView.tsx';
 import { useAppContext } from '@/hooks/useAppContext.ts';
+import { ROUTES } from '@/enums/routes.ts';
 
 function App() {
   const { state } = useAppContext();
@@ -15,8 +16,9 @@ function App() {
 
       <main className={'container'}>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<div>About</div>} />
+          <Route path={ROUTES.HOME} element={<Home />} />
+          <Route path={ROUTES.VEHICLES} element={<Home />} />
+          <Route path="*" element={<Navigate to={ROUTES.HOME} replace />} />
         </Routes>
 
         {error && <ErrorView message={`Error: ${error}`} />}

@@ -12,11 +12,6 @@ export const Vehicles = ({ filteredVehicles }: VehiclesProps) => {
     return <div>No vehicles available</div>;
   }
 
-  const handleViewDetails = (vehicleId: number) => {
-    console.log(`View details for vehicle: ${vehicleId}`);
-    // TODO: Navigate to vehicle detail page
-  };
-
   return (
     <div className="vehicles">
       <div className="vehicles__header">
@@ -29,11 +24,7 @@ export const Vehicles = ({ filteredVehicles }: VehiclesProps) => {
       <div className="vehicles__grid">
         {filteredVehicles.length > 0 ? (
           filteredVehicles.map((vehicle) => (
-            <VehicleCard
-              key={vehicle.id}
-              vehicle={vehicle}
-              onViewDetails={handleViewDetails}
-            />
+            <VehicleCard key={vehicle.id} vehicle={vehicle} />
           ))
         ) : (
           <div className="vehicles__no-results">

@@ -2,17 +2,20 @@ import './vehicle-card.scss';
 import type { Vehicle } from '@src/types/vehicle';
 import { Button } from '@components/UI/Button/Button.tsx';
 import { Rating } from '@components/UI/Rating/Rating';
+import { useNavigate } from 'react-router';
+import { ROUTES } from '@/enums/routes.ts';
 
 type VehicleCardProps = {
   vehicle: Vehicle;
-  onViewDetails?: (vehicleId: number) => void;
 };
 
 const getAvailabilityModifier = (status: string): string => {
   return status.toLowerCase().replace(/\s+/g, '-');
 };
 
-export const VehicleCard = ({ vehicle, onViewDetails }: VehicleCardProps) => {
+export const VehicleCard = ({ vehicle }: VehicleCardProps) => {
+  const navigate = useNavigate();
+
   const availabilityModifier = getAvailabilityModifier(
     vehicle.availabilityStatus
   );
@@ -55,7 +58,7 @@ export const VehicleCard = ({ vehicle, onViewDetails }: VehicleCardProps) => {
         </div>
 
         <Button
-          onClick={() => onViewDetails?.(id)}
+          onClick={() => navigate(`${ROUTES.VEHICLES}/${id}`)}
           aria-label={`View details for ${title}`}
         >
           View Details →
