@@ -28,7 +28,7 @@ export const SearchFilters = ({
     return {
       [FILTER_KEYS.SEARCH]: '',
       [FILTER_KEYS.BRAND]: '',
-      [FILTER_KEYS.MIN_PRICE]: prices ? Math.ceil(Number(prices[0])) : 0,
+      [FILTER_KEYS.MIN_PRICE]: prices ? Math.floor(Number(prices[0])) : 0,
       [FILTER_KEYS.MAX_PRICE]: prices
         ? Math.ceil(Number(prices[prices.length - 1]))
         : 40000,
@@ -52,8 +52,8 @@ export const SearchFilters = ({
   }, [vehicles]);
 
   const debouncedFilterChange = useDebouncedCallback(
-    (key: FilterKeys, value: string | number) => {
-      onFilterChange(applyFilters(vehicles, { ...filters, [key]: value }));
+    (updatedFilters: FilterState) => {
+      onFilterChange(applyFilters(vehicles, updatedFilters));
     },
     500
   );
@@ -61,16 +61,17 @@ export const SearchFilters = ({
   const handleFilterChange = (key: FilterKeys, value: string | number) => {
     const updated = { ...filters, [key]: value };
     setFilters(updated);
+
     if (
       key === FILTER_KEYS.SEARCH ||
       key === FILTER_KEYS.MIN_PRICE ||
       key === FILTER_KEYS.MAX_PRICE
     ) {
-      debouncedFilterChange(key, value);
+      debouncedFilterChange(updated);
       return;
     }
 
-    onFilterChange(applyFilters(vehicles, { ...filters, [key]: value }));
+    onFilterChange(applyFilters(vehicles, updated));
   };
 
   const handleReset = () => {
