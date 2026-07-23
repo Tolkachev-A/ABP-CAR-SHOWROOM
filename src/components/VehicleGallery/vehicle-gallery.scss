@@ -1,0 +1,109 @@
+@use '@styles/variables' as *;
+
+.vehicle-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+
+  @media (max-width: $mobile) {
+    gap: 16px;
+  }
+
+  &__main {
+    width: 100%;
+    background: $color-gradient-light;
+    border-radius: 16px;
+    padding: 16px;
+    box-shadow: 0 2px 8px $color-shadow-light;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media (max-width: $tablet) {
+      min-height: 300px;
+    }
+
+    @media (max-width: $mobile) {
+      min-height: 250px;
+      padding: 16px;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    max-height: 400px;
+
+    @media (max-width: $tablet) {
+      max-height: 300px;
+    }
+
+    @media (max-width: $mobile) {
+      max-height: 250px;
+    }
+  }
+
+  &__thumbnails {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    padding: 8px 0;
+
+    &::-webkit-scrollbar {
+      height: 6px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: $color-background-light;
+      border-radius: 3px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: $color-text-light;
+      border-radius: 3px;
+
+      &:hover {
+        background: $color-text-secondary;
+      }
+    }
+  }
+
+  &__thumbnail {
+    flex-shrink: 0;
+    width: 80px;
+    height: 80px;
+    border: 2px solid $color-background-light;
+    border-radius: 12px;
+    padding: 4px;
+    background: $color-background;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    &:hover {
+      border-color: $color-primary;
+    }
+
+    &_active {
+      border-color: $color-primary;
+      background: $color-primary-light;
+    }
+
+    @media (max-width: $tablet) {
+      width: 70px;
+      height: 70px;
+    }
+
+    @media (max-width: $mobile) {
+      width: 60px;
+      height: 60px;
+    }
+  }
+}

@@ -1,0 +1,102 @@
+@use '@styles/variables' as *;
+@use '@styles/typography' as typography;
+
+.review-form {
+  padding: 32px;
+  background: $color-background;
+  border: 1px solid $color-border;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  @media (max-width: $tablet) {
+    padding: 16px;
+    gap: 12px;
+  }
+
+  &__title {
+    @extend .heading-sm;
+    margin: 0;
+    color: $color-text;
+  }
+
+  &__group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__label {
+    @extend .body-text-bold;
+    color: $color-text;
+    font-size: 14px;
+  }
+
+  &__input,
+  &__textarea,
+  &__select {
+    padding: 12px 16px;
+    border: 1px solid $color-border;
+    border-radius: 8px;
+
+    @extend .body-text;
+    color: $color-text;
+    font-family: inherit;
+    transition: border-color 0.2s ease;
+
+    &:focus {
+      outline: none;
+      border-color: $color-primary;
+      box-shadow: 0 0 0 3px $color-shadow-primary;
+    }
+
+    &::placeholder {
+      color: $color-text-light;
+    }
+  }
+
+  &__input_error,
+  &__textarea_error {
+    border-color: $color-discount;
+
+    &:focus {
+      box-shadow: 0 0 0 3px $color-shadow-discount;
+    }
+  }
+
+  &__textarea {
+    resize: vertical;
+    min-height: 120px;
+
+    @media (max-width: $mobile) {
+      min-height: 100px;
+    }
+  }
+
+  &__select {
+    cursor: pointer;
+  }
+
+  &__error {
+    font-size: 13px;
+    color: $color-discount;
+    font-weight: 500;
+  }
+
+  &__char-count {
+    @extend .body-text-sm;
+    color: $color-text-light;
+    font-size: 12px;
+  }
+
+  &__rating-wrapper {
+    display: flex;
+    align-items: center;
+    padding: 8px 0;
+  }
+
+  &__btn {
+    text-align: center;
+  }
+}

@@ -32,7 +32,7 @@
     &:focus {
       outline: none;
       border-color: $color-primary;
-      box-shadow: 0 0 0 3px rgb(33 150 243 / 10%);
+      box-shadow: 0 0 0 3px $color-focus-shadow;
     }
   }
 

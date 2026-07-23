@@ -1,6 +1,6 @@
 $color-primary: #1456fb;
+$color-primary-hover: #0d4bc9;
 $color-primary-light: #e8f1ff;
-$error-color: #e74c3c;
 $color-text: #1a1a1a;
 $color-text-secondary: #666;
 $color-text-light: #999;
@@ -9,13 +9,24 @@ $color-background-light: #f5f5f5;
 $color-border: #e0e0e0;
 $color-price: #e74c3c;
 $color-discount: #e74c3c;
-$color-in-stock: #27ae60;
 $color-star: #ffc107;
 $color-star-empty: #e0e0e0;
+$color-success: #22863a;
+$color-success-light: rgb(34 134 58 / 10%);
+$color-error-dark: #d32f2f;
+$color-gradient-light: linear-gradient(135deg, #f5f7fa 0%, #f8f9fc 100%);
+$color-focus-shadow: rgb(33 150 243 / 10%);
+$color-shadow-light: rgb(0 0 0 / 8%);
+$color-shadow-medium: rgb(0 0 0 / 12%);
+$color-shadow-primary: rgb(20 86 251 / 15%);
+$color-shadow-discount: rgb(231 76 60 / 10%);
+
+// Breakpoints
 $desktop: 1024px;
 $laptop: 992px;
 $tablet: 768px;
 $mobile: 480px;
-$spacing: 32px;
+
+// Typography
 $font-body: Inter, sans-serif;
 $font-heading: Manrope, sans-serif;

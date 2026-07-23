@@ -8,10 +8,10 @@
   transform: translateX(-50%);
   z-index: 1000;
   padding: 12px 24px;
-  background-color: #d32f2f;
+  background-color: $color-error-dark;
   border-radius: 4px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  animation: slideUp 0.3s ease-in-out;
+  box-shadow: 0 4px 12px $color-shadow-medium;
+  animation: slide-up 0.3s ease-in-out;
 
   &__content {
     @extend .body-text;
@@ -27,11 +27,12 @@
   }
 }
 
-@keyframes slideUp {
+@keyframes slide-up {
   from {
     transform: translateX(-50%) translateY(120%);
     opacity: 0;
   }
+
   to {
     transform: translateX(-50%) translateY(0);
     opacity: 1;

@@ -9,9 +9,9 @@ type RatingProps = {
 
 export const Rating = ({ rating, onRate }: RatingProps) => {
   const [hoverRating, setHoverRating] = useState<number | null>(null);
-  const isInteractive = rating === undefined;
+  const isInteractive = onRate !== undefined;
   const displayRating =
-    isInteractive && hoverRating !== null ? hoverRating : rating || 0;
+    hoverRating !== null ? hoverRating : rating || 0;
 
   const stars = useMemo(() => {
     const fullStars = Math.floor(displayRating);
@@ -34,7 +34,7 @@ export const Rating = ({ rating, onRate }: RatingProps) => {
           onMouseLeave={() => isInteractive && setHoverRating(null)}
           onClick={() => {
             if (isInteractive) {
-              onRate?.(index + 1);
+              onRate(index + 1);
             }
           }}
         />

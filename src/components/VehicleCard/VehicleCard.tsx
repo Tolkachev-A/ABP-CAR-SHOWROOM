@@ -4,24 +4,19 @@ import { Button } from '@components/UI/Button/Button.tsx';
 import { Rating } from '@components/UI/Rating/Rating';
 import { useNavigate } from 'react-router';
 import { ROUTES } from '@/enums/routes.ts';
+import { calculateDiscountedPrice } from '@/utils/price.ts';
 
 type VehicleCardProps = {
   vehicle: Vehicle;
 };
 
-const getAvailabilityModifier = (status: string): string => {
-  return status.toLowerCase().replace(/\s+/g, '-');
-};
-
 export const VehicleCard = ({ vehicle }: VehicleCardProps) => {
   const navigate = useNavigate();
 
-  const availabilityModifier = getAvailabilityModifier(
-    vehicle.availabilityStatus
-  );
-
-  const { thumbnail, title, rating, price, discountPercentage, brand, id } =
+  const { thumbnail, title, rating, price, discountPercentage, brand, id, availabilityStatus } =
     vehicle;
+
+  const discountedPrice = calculateDiscountedPrice(price, discountPercentage);
 
   return (
     <article className="vehicle-card">
@@ -35,7 +30,7 @@ export const VehicleCard = ({ vehicle }: VehicleCardProps) => {
         <Rating rating={rating} />
 
         <div className="vehicle-card__price-row">
-          <span className="vehicle-card__price">${price}</span>
+          <span className="vehicle-card__price">${discountedPrice}</span>
           {discountPercentage > 0 && (
             <span className="vehicle-card__discount">
               -{discountPercentage}%
@@ -50,15 +45,13 @@ export const VehicleCard = ({ vehicle }: VehicleCardProps) => {
 
         <div className="vehicle-card__info-item">
           <span className="vehicle-card__label">Availability:</span>
-          <span
-            className={`vehicle-card__availability vehicle-card__availability_${availabilityModifier}`}
-          >
-            {vehicle.availabilityStatus}
-          </span>
+          <span className="status-badge">{availabilityStatus}</span>
         </div>
 
         <Button
-          onClick={() => navigate(`${ROUTES.VEHICLES}/${id}`)}
+          onClick={() =>
+            navigate(`${ROUTES.VEHICLE_DETAIL.replace(':id', id.toString())}`)
+          }
           aria-label={`View details for ${title}`}
         >
           View Details →

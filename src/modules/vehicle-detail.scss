@@ -1,0 +1,111 @@
+@use '@styles/variables' as *;
+@use '@styles/typography' as typography;
+
+.vehicle-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+  margin-top: 10px;
+
+  @media (max-width: $tablet) {
+    gap: 32px;
+  }
+
+  &__back-link {
+    @extend .body-text-bold;
+    background: none;
+    border: none;
+    color: $color-primary;
+    cursor: pointer;
+    padding: 0;
+    font-size: 14px;
+    transition: color 0.3s ease;
+    width: fit-content;
+    font-family: inherit;
+
+    &:hover {
+      color: $color-primary-hover;
+    }
+  }
+
+  &__content {
+    display: flex;
+    gap: 64px;
+
+    @media (max-width: $laptop) {
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    @media (max-width: $tablet) {
+      gap: 16px;
+    }
+  }
+
+  &__gallery {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+
+    @media (max-width: $laptop) {
+      min-width: auto;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+
+    @media (max-width: $laptop) {
+      min-width: auto;
+    }
+  }
+
+  &__characteristics {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  &__reviews-section {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+
+    @media (max-width: $tablet) {
+      gap: 16px;
+    }
+  }
+
+  &__reviews-title {
+    @extend .heading-sm;
+    margin: 0;
+    color: $color-text;
+  }
+
+  &__form-section {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__error {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+    justify-content: center;
+    padding: 64px;
+    background: $color-background-light;
+    border-radius: 12px;
+    text-align: center;
+
+    p {
+      @extend .body-text;
+      color: $color-text-light;
+      margin: 0;
+    }
+  }
+}

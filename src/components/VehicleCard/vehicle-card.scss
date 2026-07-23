@@ -9,7 +9,7 @@
   border-radius: 8px;
   overflow: hidden;
   transition: all 0.3s ease;
-  box-shadow: 0 2px 8px rgb(0 0 0 / 8%);
+  box-shadow: 0 2px 8px $color-shadow-light;
   width: 100%;
   max-width: calc((100% - 64px) / 3);
 
@@ -26,13 +26,13 @@
   }
 
   &:hover {
-    box-shadow: 0 8px 16px rgb(0 0 0 / 12%);
+    box-shadow: 0 8px 16px $color-shadow-medium;
     transform: translateY(-2px);
   }
 
   &_featured {
     border: 2px solid $color-primary;
-    box-shadow: 0 4px 12px rgb(20 86 251 / 15%);
+    box-shadow: 0 4px 12px $color-shadow-primary;
   }
 
   &__image-wrapper {
@@ -56,7 +56,7 @@
   &__content {
     display: flex;
     flex-direction: column;
-    padding: $spacing;
+    padding: 32px;
     gap: 16px;
 
     @media (max-width: $tablet) {
@@ -107,18 +107,5 @@
   &__value {
     @extend .body-text;
     color: $color-text-secondary;
-  }
-
-  &__availability {
-    @extend .body-text-sm;
-    padding: 2px 8px;
-    border-radius: 4px;
-    background-color: $color-background-light;
-    color: $color-text-secondary;
-
-    &_in-stock {
-      background-color: rgb(39 174 96 / 10%);
-      color: $color-in-stock;
-    }
   }
 }

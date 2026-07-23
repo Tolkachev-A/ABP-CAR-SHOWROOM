@@ -3,10 +3,10 @@
 
 .vehicles {
   width: 100%;
-  padding-block: $spacing;
+  padding-block: 32px;
 
   &__header {
-    margin-bottom: $spacing;
+    margin-bottom: 32px;
   }
 
   &__title {
@@ -29,7 +29,7 @@
   &__grid {
     display: flex;
     flex-wrap: wrap;
-    gap: $spacing;
+    gap: 32px;
     width: 100%;
 
     @media (max-width: $tablet) {

@@ -1,0 +1,147 @@
+@use '@styles/variables' as *;
+@use '@styles/typography' as typography;
+
+.vehicle-info {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+
+  @media (max-width: $mobile) {
+    gap: 16px;
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  &__title {
+    @extend .heading-font;
+    margin: 0;
+  }
+
+  &__rating {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  &__reviews {
+    @extend .body-text-sm;
+    color: $color-text-light;
+  }
+
+  &__price-section {
+    padding: 16px;
+    background: $color-background-light;
+    border-radius: 12px;
+  }
+
+  &__price-block {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    @media (max-width: $mobile) {
+      flex-wrap: wrap;
+    }
+  }
+
+  &__current-price {
+    @extend .heading-font;
+    color: $color-primary;
+
+    @media (max-width: $mobile) {
+      font-size: 20px;
+    }
+  }
+
+  &__original-price {
+    @extend .body-text-sm;
+    color: $color-text-light;
+    text-decoration: line-through;
+  }
+
+  &__discount {
+    @extend .body-text-bold;
+    color: $color-discount;
+    background: $color-shadow-discount;
+    padding: 4px 8px;
+    border-radius: 6px;
+  }
+
+  &__status {
+    display: flex;
+    gap: 16px;
+    padding: 16px;
+    background: $color-background;
+    border: 1px solid $color-border;
+    border-radius: 12px;
+
+    @media (max-width: $mobile) {
+      flex-direction: column;
+    }
+  }
+
+  &__status-item {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex: 1;
+  }
+
+  &__status-label {
+    @extend .body-text-sm;
+    color: $color-text-light;
+  }
+
+  &__description {
+    @extend .body-text;
+  }
+
+  &__specs {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  &__specs-title {
+    @extend .heading-sm;
+  }
+
+  &__specs-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  &__spec-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 16px;
+    background: $color-background-light;
+    border-radius: 12px;
+
+    width: 100%;
+    max-width: calc((100% - 16px) / 2);
+
+    @media (max-width: $mobile) {
+      max-width: 100%;
+      padding: 12px;
+    }
+  }
+
+  &__spec-label {
+    @extend .body-text-sm;
+    color: $color-text-light;
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+  }
+
+  &__spec-value {
+    @extend .body-text-bold;
+  }
+}

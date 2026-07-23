@@ -15,15 +15,17 @@ export const applyFilters = (
     const maxPrice = filters[FILTER_KEYS.MAX_PRICE] as number;
     const rating = filters[FILTER_KEYS.RATING] as string;
 
+    const { title, brand: vehicleBrand, price, rating: vehicleRating } = vehicle;
+
     const matchesSearch =
-      vehicle.title.toLowerCase().includes(search.toLowerCase()) ||
-      vehicle.brand.toLowerCase().includes(search.toLowerCase());
+      title.toLowerCase().includes(search.toLowerCase()) ||
+      vehicleBrand.toLowerCase().includes(search.toLowerCase());
 
-    const matchesBrand = !brand || vehicle.brand === brand;
+    const matchesBrand = !brand || vehicleBrand === brand;
 
-    const matchesPrice = vehicle.price >= minPrice && vehicle.price <= maxPrice;
+    const matchesPrice = price >= minPrice && price <= maxPrice;
 
-    const matchesRating = !rating || vehicle.rating >= parseFloat(rating);
+    const matchesRating = !rating || vehicleRating >= parseFloat(rating);
 
     return matchesSearch && matchesBrand && matchesPrice && matchesRating;
   });

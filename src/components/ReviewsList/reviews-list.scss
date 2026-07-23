@@ -1,0 +1,90 @@
+@use '@styles/variables' as *;
+@use '@styles/typography' as typography;
+
+.reviews-list {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+
+  @media (max-width: $tablet) {
+    gap: 16px;
+  }
+
+  &__empty {
+    @extend .body-text;
+    color: $color-text-light;
+    text-align: center;
+    padding: 32px;
+    background: $color-background-light;
+    border-radius: 12px;
+    margin: 0;
+  }
+
+  &__item {
+    padding: 16px;
+    background: $color-background;
+    border: 1px solid $color-border;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    @media (max-width: $mobile) {
+      padding: 12px;
+    }
+  }
+
+  &__header {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  &__avatar {
+    @extend .body-text-bold;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: $color-primary;
+    color: $color-background;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+
+    @media (max-width: $tablet) {
+      width: 44px;
+      height: 44px;
+      font-size: 13px;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+  }
+
+  &__name {
+    @extend .body-text-bold;
+    margin: 0;
+    color: $color-text;
+  }
+
+  &__date {
+    @extend .body-text-sm;
+    color: $color-text-light;
+  }
+
+  &__rating {
+    margin-top: 4px;
+  }
+
+  &__comment {
+    @extend .body-text;
+    color: $color-text;
+    margin: 0;
+  }
+}

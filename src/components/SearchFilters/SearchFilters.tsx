@@ -10,6 +10,7 @@ import {
 import type { Vehicle } from '@/types/vehicle';
 import type { FilterState, SelectOption, FilterKeys } from '@/types/filters';
 import { useDebouncedCallback } from 'use-debounce';
+import { calculateDiscountedPrice } from '@/utils/price.ts';
 
 type SearchFiltersProps = {
   vehicles: Vehicle[] | null;
@@ -21,13 +22,15 @@ export const SearchFilters = ({
   onFilterChange,
 }: SearchFiltersProps) => {
   const initialFilters: FilterState = useMemo(() => {
-    const prices = vehicles?.map((v) => v.price).sort((a, b) => a - b);
+    const prices = vehicles
+      ?.map((v) => calculateDiscountedPrice(v.price, v.discountPercentage))
+      .sort();
     return {
       [FILTER_KEYS.SEARCH]: '',
       [FILTER_KEYS.BRAND]: '',
-      [FILTER_KEYS.MIN_PRICE]: prices ? parseInt(String(prices[0])) : 0,
+      [FILTER_KEYS.MIN_PRICE]: prices ? Math.ceil(Number(prices[0])) : 0,
       [FILTER_KEYS.MAX_PRICE]: prices
-        ? parseInt(String(prices[prices.length - 1]))
+        ? Math.ceil(Number(prices[prices.length - 1]))
         : 40000,
       [FILTER_KEYS.RATING]: '',
     };

@@ -27,6 +27,7 @@
 
 body {
   font-family: $font-body;
+  color: $color-text;
 }
 
 main {
@@ -43,4 +44,14 @@ main {
   @media (max-width: $tablet) {
     padding: 0 30px;
   }
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 13px;
+  color: $color-success;
+  background: $color-success-light;
 }
