@@ -26,7 +26,7 @@ The application follows a modular architecture with clear separation of concerns
 ## 🔧 Development
 
 ### Prerequisites
-- Node.js 18+
+- Node.js 22+
 - npm or yarn package manager
 
 ### Installation
