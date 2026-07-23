@@ -53,6 +53,26 @@ npm run format
 npm run preview
 ```
 
+## 🚀 Deployment
+
+### GitHub Pages Deployment
+This project is configured for automatic deployment to GitHub Pages.
+
+1. **Push to GitHub** - Ensure your code is pushed to a GitHub repository
+2. **Enable GitHub Pages** - Go to repository Settings → Pages → Select GitHub Actions
+3. **Automatic Deployment** - Push to main/master branch triggers automatic deployment
+
+### Configuration
+- **Base Path**: `/ABP-CAR-SHOWROOM/` configured in `vite.config.ts`
+- **GitHub Actions**: Workflow defined in `.github/workflows/deploy.yml`
+- **Router**: Uses HashRouter for GitHub Pages compatibility
+
+### Deployment URL
+After deployment, the application will be available at:
+```
+https://your-username.github.io/ABP-CAR-SHOWROOM/
+```
+
 ## 📄 License
 
 This project is for demonstration purposes.
