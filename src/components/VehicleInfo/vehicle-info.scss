@@ -92,8 +92,7 @@
   }
 
   &__status-label {
-    @extend .body-text-sm;
-    color: $color-text-light;
+    @extend .label-text;
   }
 
   &__description {
@@ -134,11 +133,7 @@
   }
 
   &__spec-label {
-    @extend .body-text-sm;
-    color: $color-text-light;
-    text-transform: uppercase;
-    font-size: 11px;
-    letter-spacing: 0.5px;
+    @extend .label-text;
   }
 
   &__spec-value {

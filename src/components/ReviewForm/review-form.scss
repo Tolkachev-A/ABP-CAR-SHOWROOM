@@ -28,9 +28,8 @@
   }
 
   &__label {
-    @extend .body-text-bold;
-    color: $color-text;
-    font-size: 14px;
+    @extend .label-text;
+    text-transform: none;
   }
 
   &__input,

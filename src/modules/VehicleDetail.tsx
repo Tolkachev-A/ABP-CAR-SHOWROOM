@@ -91,7 +91,7 @@ export const VehicleDetail = () => {
           <VehicleGallery images={images} title={title} />
         </div>
         <div className="vehicle-detail__info">
-          <VehicleInfo vehicle={vehicle} />
+          <VehicleInfo vehicle={vehicle} reviews={reviews} />
         </div>
       </div>
 

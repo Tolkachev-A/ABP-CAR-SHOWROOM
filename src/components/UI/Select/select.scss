@@ -10,8 +10,7 @@
   min-width: 150px;
 
   &__label {
-    @extend .body-text-sm;
-    color: $color-text;
+    @extend .label-text;
   }
 
   &__input {

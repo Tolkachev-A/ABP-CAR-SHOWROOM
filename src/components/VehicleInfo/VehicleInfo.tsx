@@ -1,17 +1,17 @@
 import { Rating } from '@components/UI/Rating/Rating';
 import { calculateDiscountedPrice } from '@/utils/price';
-import type { Vehicle } from '@/types/vehicle';
+import type { Review, Vehicle } from '@/types/vehicle';
 import './vehicle-info.scss';
 
 interface VehicleInfoProps {
   vehicle: Vehicle;
+  reviews: Review[];
 }
 
-export const VehicleInfo = ({ vehicle }: VehicleInfoProps) => {
+export const VehicleInfo = ({ vehicle, reviews }: VehicleInfoProps) => {
   const {
     title,
     rating,
-    reviews,
     price,
     discountPercentage,
     availabilityStatus,

@@ -31,3 +31,12 @@
   font-weight: 600;
   line-height: 24px;
 }
+
+.label-text {
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 16px;
+  color: $color-text-secondary;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}

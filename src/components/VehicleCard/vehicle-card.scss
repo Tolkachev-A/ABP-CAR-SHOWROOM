@@ -100,8 +100,7 @@
   }
 
   &__label {
-    @extend .body-text-bold;
-    color: $color-text;
+    @extend .label-text;
   }
 
   &__value {
