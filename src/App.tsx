@@ -1,5 +1,5 @@
 import { Routes, Route, Navigate } from 'react-router';
-import './App.css';
+
 import { Header } from './components/Header/Header.tsx';
 import { Home } from './modules/Home.tsx';
 import { VehicleDetail } from './modules/VehicleDetail.tsx';

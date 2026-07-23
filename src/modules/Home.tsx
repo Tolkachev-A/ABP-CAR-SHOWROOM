@@ -11,7 +11,9 @@ export const Home = () => {
   const { loading } = state;
 
   const [vehicles, setVehicles] = useState<Vehicle[] | null>(null);
-  const [filteredVehicles, setFilteredVehicles] = useState<Vehicle[] | null>(null);
+  const [filteredVehicles, setFilteredVehicles] = useState<Vehicle[] | null>(
+    null
+  );
 
   useEffect(() => {
     const loadVehicles = async (): Promise<void> => {

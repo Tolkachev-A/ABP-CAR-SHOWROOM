@@ -30,12 +30,6 @@ body {
   color: $color-text;
 }
 
-main {
-  min-height: calc(100vh - 72px);
-  display: flex;
-  flex-direction: column;
-}
-
 .container {
   max-width: 1280px;
   margin: 0 auto;
@@ -44,6 +38,13 @@ main {
   @media (max-width: $tablet) {
     padding: 0 30px;
   }
+}
+
+main[class] {
+  min-height: calc(100vh - 72px);
+  display: flex;
+  flex-direction: column;
+  margin-block: 32px;
 }
 
 .status-badge {

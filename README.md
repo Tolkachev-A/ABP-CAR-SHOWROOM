@@ -1,73 +1,58 @@
-# React + TypeScript + Vite
+# Car Showroom Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Modern React application for browsing and managing vehicle listings in a car showroom.
 
-Currently, two official plugins are available:
+## 🛠 Technologies
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **React 19** - Latest React version
+- **TypeScript** - Type-safe development
+- **Vite** - Build tool with HMR
+- **SCSS/SASS** - Styling with BEM methodology
+- **React Router v8** - Client-side routing
+- **Context API + useReducer** - State management
 
-## React Compiler
+## 🏗️ Project Structure
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+The application follows a modular architecture with clear separation of concerns:
 
-## Expanding the ESLint configuration
+- **API Layer** - Vehicle data fetching and external API integration
+- **Context Management** - Global state for loading, error handling, and vehicle data
+- **Routing** - Page navigation and URL management
+- **Constants & Types** - Shared definitions and TypeScript interfaces
+- **User Interface** - Reusable components for vehicle display, forms, and navigation
+- **Styling System** - Consistent design tokens with responsive layouts
+- **Utilities** - Validation, formatting, and helper functions
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🔧 Development
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Prerequisites
+- Node.js 18+
+- npm or yarn package manager
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
+### Installation
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Development Commands
+```bash
+# Start development server
+npm run dev
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x';
-import reactDom from 'eslint-plugin-react-dom';
+# Build for production
+npm run build
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
+# Run linters
+npm run lint
+npm run lint:styles
+
+# Format code
+npm run format
+
+# Preview production build
+npm run preview
 ```
+
+## 📄 License
+
+This project is for demonstration purposes.
